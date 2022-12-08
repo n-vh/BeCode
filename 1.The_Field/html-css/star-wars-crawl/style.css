@@ -1,0 +1,39 @@
+@font-face {
+  font-family: NewsGothic;
+  src: url(fonts/NewsGothic.otf);
+}
+
+body {
+  background-color: black;
+  background-size: cover;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+main > div {
+  position: absolute;
+}
+
+.intro {
+  font-family: 'NewsGothic';
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  color: #078389;
+  opacity: 0;
+  animation-name: intro-fade-in-out;
+  animation-duration: 5s;
+}
+
+@keyframes intro-fade-in-out {
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+}
