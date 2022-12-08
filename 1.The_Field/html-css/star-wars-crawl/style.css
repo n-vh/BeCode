@@ -3,15 +3,23 @@
   src: url(fonts/NewsGothic.otf);
 }
 
-body {
-  background-color: black;
-  background-size: cover;
+@font-face {
+  font-family: Univers;
+  src: url(fonts/Univers.otf);
 }
 
-main {
+body {
+  background-color: #000;
+  overflow: hidden;
+  user-select: none;
+}
+
+main,
+.core {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   height: 100vh;
 }
 
@@ -20,20 +28,88 @@ main > div {
 }
 
 .intro {
-  font-family: 'NewsGothic';
+  font-family: NewsGothic;
   font-size: 2.5rem;
   letter-spacing: 2px;
   color: #078389;
   opacity: 0;
-  animation-name: intro-fade-in-out;
-  animation-duration: 5s;
+  animation: intro 5s;
 }
 
-@keyframes intro-fade-in-out {
-  20% {
+.core {
+  background-image: url('./stars.jpg');
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0;
+  animation: core 0s linear 7s forwards;
+}
+
+.logo {
+  position: absolute;
+  animation: logo 12s linear 7s forwards;
+}
+
+.content {
+  color: #c98d06;
+  font-size: 118px;
+  font-family: Univers;
+  width: 1000px;
+  opacity: 0;
+  animation: crawl 90s linear 15s forwards;
+  transform-origin: center;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.text {
+  text-align-last: justify;
+}
+
+@keyframes intro {
+  20%,
+  80% {
     opacity: 1;
   }
+}
+
+@keyframes core {
+  from,
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes logo {
+  0% {
+    transform: scale(100%);
+  }
+
   80% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0%);
+  }
+}
+
+@keyframes crawl {
+  0% {
+    transform: perspective(75vmax) rotateX(75deg) translateY(2000px) translateZ(-200px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: perspective(75vmax) rotateX(75deg) translateY(-3000px) translateZ(-200px);
     opacity: 1;
   }
 }
