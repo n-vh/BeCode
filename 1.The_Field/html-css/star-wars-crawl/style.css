@@ -34,6 +34,7 @@ main > div {
   color: #078389;
   opacity: 0;
   animation: intro 5s;
+  max-width: 600px;
 }
 
 .core {
@@ -56,7 +57,7 @@ main > div {
   font-family: Univers;
   width: 1000px;
   opacity: 0;
-  animation: crawl 90s linear 15s forwards;
+  animation: crawl 90s linear 15s forwards, fade 10s linear 80s forwards;
   transform-origin: center;
 }
 
@@ -111,5 +112,15 @@ main > div {
   100% {
     transform: perspective(75vmax) rotateX(75deg) translateY(-3000px) translateZ(-200px);
     opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
   }
 }
