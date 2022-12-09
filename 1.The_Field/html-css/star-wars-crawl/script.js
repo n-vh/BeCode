@@ -1,5 +1,5 @@
 (() => {
-  const audio = new Audio('./audio.mp3');
+  const audio = new Audio('./assets/audio.mp3');
 
   setTimeout(() => {
     audio.play();
