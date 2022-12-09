@@ -55,7 +55,7 @@ main > div {
   color: #c98d06;
   font-size: 118px;
   font-family: Univers;
-  width: 1000px;
+  width: 930px;
   opacity: 0;
   animation: crawl 90s linear 15s forwards, fade 10s linear 80s forwards;
   transform-origin: center;
@@ -67,7 +67,7 @@ main > div {
 }
 
 .text {
-  text-align-last: justify;
+  text-align: justify;
 }
 
 @keyframes intro {
