@@ -37,3 +37,7 @@
    - Desktop
 
      ![Exercice-5](./readme/bootstrap-ex05-desktop.png?raw=true)
+
+## Result
+
+https://n-vh.github.io/pages/bootstrap/initiation
