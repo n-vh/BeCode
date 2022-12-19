@@ -13,21 +13,27 @@
 ## Exercices
 
 1. Block positioning
+
    ![Exercice-1](./readme/bootstrap-ex01.png?raw=true)
 
 2. Imbricated elements
+
    ![Exercice-2](./readme/bootstrap-ex02.png?raw=true)
 
 3. Change elements order
+
    ![Exercice-3](./readme/bootstrap-ex03.png?raw=true)
 
 4. Practice further
+
    ![Exercice-4](./readme/bootstrap-ex04.png?raw=true)
 
 5. Responsive layout
 
    - Mobile
+
      ![Exercice-5](./readme/bootstrap-ex05-mobile.png?raw=true)
 
    - Desktop
+
      ![Exercice-5](./readme/bootstrap-ex05-desktop.png?raw=true)
