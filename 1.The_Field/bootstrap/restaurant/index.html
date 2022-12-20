@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Norican&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <title>Home – Dorsia</title>
+  </head>
+  <body class="bg-light">
+    <div class="container">
+      <!-- navbar -->
+      <nav class="navbar navbar-expand-md bg-light my-2">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-bold logo" href="index.html">Dorsia</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#hamburger"
+            aria-controls="hamburger"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse text-center justify-content-end"
+            id="hamburger"
+          >
+            <ul class="navbar-nav mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active fw-bold" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="menu.html">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pictures.html">Pictures</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="restaurants.html">Restaurants</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-dark" href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- jumbotron -->
+    <div class="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="assets/images/placeholder.jpg"
+            class="w-100"
+            style="filter: brightness(50%)"
+            alt="Restaurant picture"
+          />
+          <div class="carousel-caption">
+            <h2 class="mb-4">
+              Welcome to <a class="navbar-brand fw-bold logo" href="index.html">Dorsia</a>
+            </h2>
+            <a class="btn btn-lg btn-outline-light" href="menu.html"> Our menu </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- promotions & events -->
+    <div class="container mt-5">
+      <div class="row gap-5 justify-content-center">
+        <div class="card col-10 col-md-5">
+          <div class="card-body">
+            <h5 class="card-title">Promotions</h5>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste fugit
+              reiciendis assumenda accusantium obcaecati veritatis quas sed molestias
+              officiis quisquam, ea eligendi commodi provident? Cumque laboriosam
+              necessitatibus eaque quidem excepturi enim! Neque?
+            </p>
+          </div>
+        </div>
+
+        <div class="card col-10 col-md-5">
+          <div class="card-body">
+            <h5 class="card-title">Events</h5>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste fugit
+              reiciendis assumenda accusantium obcaecati veritatis quas sed molestias
+              officiis quisquam, ea eligendi commodi provident? Cumque laboriosam
+              necessitatibus eaque quidem excepturi enim! Neque?
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer text-center py-4 bg-light">
+      © 2022 Copyright | <a class="text-dark" href="index.html">Dorsia</a>
+    </div>
+
+    <script src="assets/bootstrap.min.js"></script>
+  </body>
+</html>
