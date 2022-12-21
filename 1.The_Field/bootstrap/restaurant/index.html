@@ -7,19 +7,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Norican&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Satisfy&family=Inter:wght@100;200;300;400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/style.css" />
-    <title>Home – Dorsia</title>
+    <title>Home – The Pet Plate</title>
   </head>
-  <body class="bg-light">
-    <div class="container">
-      <!-- navbar -->
-      <nav class="navbar navbar-expand-md bg-light my-2">
-        <div class="container-fluid">
-          <a class="navbar-brand fw-bold logo" href="index.html">Dorsia</a>
+  <body>
+    <div class="bg-white fixed-top py-2">
+      <div class="container">
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-md">
+          <object type="image/svg+xml" data="assets/images/logo.svg">
+            Your browser does not support SVG
+          </object>
+          <a class="navbar-brand mx-md-3 logo" href="index.html">The Pet Plate<b>.</b></a>
           <button
             class="navbar-toggler"
             type="button"
@@ -32,12 +35,12 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div
-            class="collapse navbar-collapse text-center justify-content-end"
+            class="navbar-collapse collapse text-center justify-content-end"
             id="hamburger"
           >
-            <ul class="navbar-nav mb-2 mb-md-0">
+            <ul class="navbar-nav mb-2 mb-md-0 mt-3 mt-md-0">
               <li class="nav-item">
-                <a class="nav-link active fw-bold" href="index.html">Home</a>
+                <a class="nav-link active" href="index.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="menu.html">Menu</a>
@@ -49,36 +52,35 @@
                 <a class="nav-link" href="restaurants.html">Restaurants</a>
               </li>
               <li class="nav-item">
-                <a class="btn btn-dark" href="contact.html">Contact</a>
+                <a class="btn btn-contact" href="contact.html">Contact</a>
               </li>
             </ul>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </div>
 
     <!-- jumbotron -->
-    <div class="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img
-            src="assets/images/placeholder.jpg"
-            class="w-100"
-            style="filter: brightness(50%)"
-            alt="Restaurant picture"
-          />
-          <div class="carousel-caption">
-            <h2 class="mb-4">
-              Welcome to <a class="navbar-brand fw-bold logo" href="index.html">Dorsia</a>
-            </h2>
-            <a class="btn btn-lg btn-outline-light" href="menu.html"> Our menu </a>
-          </div>
+    <div class="jumbotron d-flex align-items-center text-light">
+      <div class="container">
+        <div
+          class="d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start"
+        >
+          <h2>
+            Welcome to <span class="logo">The Pet Plate<b>.</b></span>
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum accusamus
+            accusantium possimus deleniti impedit repellendus maxime ducimus veritatis
+            dicta eum.
+          </p>
+          <a href="./contact/html" class="btn-contact">Contact</a>
         </div>
       </div>
     </div>
 
     <!-- promotions & events -->
-    <div class="container mt-5">
+    <div class="container my-5">
       <div class="row gap-5 justify-content-center">
         <div class="card col-10 col-md-5">
           <div class="card-body">
@@ -107,8 +109,8 @@
     </div>
 
     <!-- footer -->
-    <div class="footer text-center py-4 bg-light">
-      © 2022 Copyright | <a class="text-dark" href="index.html">Dorsia</a>
+    <div class="footer text-center py-5 bg-light">
+      © 2022 Copyright | <a class="text-dark" href="index.html">The Pet Plate</a>
     </div>
 
     <script src="assets/bootstrap.min.js"></script>
