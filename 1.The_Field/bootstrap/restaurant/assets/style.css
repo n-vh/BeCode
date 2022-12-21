@@ -1,5 +1,6 @@
 * {
   font-family: 'Inter', sans-serif;
+  --accent-color: #f4a22b;
 }
 
 .logo {
@@ -9,7 +10,7 @@
 }
 
 .logo b {
-  color: #fcb041;
+  color: var(--accent-color);
 }
 
 .navbar-nav {
@@ -20,7 +21,7 @@
 .btn-contact,
 .btn-contact:hover {
   border-radius: 20px;
-  background-color: #fcb041;
+  background-color: var(--accent-color);
   color: white;
   font-weight: 500;
   text-decoration: none;
