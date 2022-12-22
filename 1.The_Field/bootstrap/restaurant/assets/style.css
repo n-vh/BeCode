@@ -64,3 +64,13 @@
 .carousel-item img {
   border-radius: 12px;
 }
+
+#map {
+  height: 50vh;
+  border-radius: 0.375rem;
+}
+
+.list-group-item:hover {
+  cursor: pointer;
+  background-color: #fff6e9;
+}

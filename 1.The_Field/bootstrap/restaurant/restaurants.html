@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Satisfy&family=Inter:wght@100;200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <script src="assets/maps.js"></script>
+    <title>Restaurants – The Pet Plate</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-md sticky-top bg-white py-3">
+      <div class="container">
+        <object type="image/svg+xml" data="assets/images/logo.svg">
+          Your browser does not support SVG
+        </object>
+        <a class="navbar-brand mx-md-3 logo" href="index.html">The Pet Plate<b>.</b></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#hamburger"
+          aria-controls="hamburger"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="navbar-collapse collapse text-center justify-content-end"
+          id="hamburger"
+        >
+          <ul class="navbar-nav mb-2 mb-md-0 mt-3 mt-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="menu.html">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pictures.html">Pictures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="restaurants.html">Restaurants</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-contact" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- restaurants -->
+    <section class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="d-flex justify-content-center my-4">
+          <h2>Our Locations</h2>
+        </div>
+        <div class="col-12 col-lg-7 col-xl-6 mb-3 mb-lg-0">
+          <div id="map"></div>
+        </div>
+        <div class="col-12 col-md-7 col-lg-5 col-xl-4">
+          <ol class="list-group">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+              onclick="locations.brussels.open()"
+            >
+              <div class="ms-2">
+                <div class="fw-bold">Brussels</div>
+                <small class="text-muted">
+                  Rue du Cirque 1 <br />
+                  1000 Brussels <br />
+                  +32 2 542 23 32
+                </small>
+              </div>
+              <div class="ms-2">
+                <small class="fw-bold">Hours</small><br />
+                <small class="text-muted">
+                  Mon-Sat: 12:00-22:00 <br />
+                  Sun: Closed <br />
+                </small>
+              </div>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+              onclick="locations.ghent.open()"
+            >
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Ghent</div>
+                <small class="text-muted">
+                  Zebrastraat 1 <br />
+                  9000 Ghent <br />
+                  +32 2 542 23 32
+                </small>
+              </div>
+              <div class="ms-2">
+                <small class="fw-bold">Hours</small><br />
+                <small class="text-muted">
+                  Mon-Thu: 12:00-22:00 <br />
+                  Fri-Sat: 14:00-23:00 <br />
+                  Sun: Closed <br />
+                </small>
+              </div>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+              onclick="locations.antwerp.open()"
+            >
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Antwerp</div>
+                <small class="text-muted">
+                  Koningin Astridplein 1 <br />
+                  2018 Antwerp <br />
+                  +32 2 542 23 32
+                </small>
+              </div>
+              <div class="ms-2">
+                <small class="fw-bold">Hours</small><br />
+                <small class="text-muted">
+                  Mon-Thu: 12:00-22:00 <br />
+                  Fri-Sat: 14:00-23:00 <br />
+                  Sun: Closed <br />
+                </small>
+              </div>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-start"
+              onclick="locations.rotterdam.open()"
+            >
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Rotterdam</div>
+                <small class="text-muted">
+                  Stationsplein 45<br />
+                  3013 Rotterdam<br />
+                  +32 2 542 23 32
+                </small>
+              </div>
+              <div class="ms-2">
+                <small class="fw-bold">Hours</small><br />
+                <small class="text-muted"> Mon-Sun: 12:00-22:00<br /> </small>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="text-center py-4 bg-light">
+      <a class="btn btn-link btn-floating btn-lg text-dark m-1">
+        <i class="fab fa-facebook-f"> </i>
+      </a>
+      <a class="btn btn-link btn-floating btn-lg text-dark m-1">
+        <i class="fab fa-twitter"> </i>
+      </a>
+      <a class="btn btn-link btn-floating btn-lg text-dark m-1">
+        <i class="fab fa-instagram"> </i>
+      </a>
+      <section class="my-3">
+        © 2022 Copyright | <a class="text-dark" href="index.html">The Pet Plate</a>
+      </section>
+    </footer>
+
+    <script src="assets/bootstrap.min.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHu_t8VjfZ8JUWdw2QPEV1rQrECGF_os&callback=initMap&v=weekly"
+      defer
+    ></script>
+  </body>
+</html>
