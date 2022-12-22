@@ -1,6 +1,7 @@
 * {
   font-family: 'Inter', sans-serif;
   --accent-color: #f4a22b;
+  --bs-primary-rgb: 244, 162, 43;
 }
 
 .logo {
@@ -53,4 +54,9 @@
 
 .jumbotron .logo {
   font-weight: 100;
+}
+
+.badge {
+  font-size: 14px;
+  font-weight: 400;
 }
