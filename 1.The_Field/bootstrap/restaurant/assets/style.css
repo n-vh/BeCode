@@ -4,6 +4,11 @@
   --bs-primary-rgb: 244, 162, 43;
 }
 
+
+.header {
+  font-family: 'Patrick Hand';
+}
+
 .logo {
   font-family: 'Satisfy';
   font-size: 36px;
