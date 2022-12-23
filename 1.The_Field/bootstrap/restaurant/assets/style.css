@@ -80,7 +80,8 @@ body {
   border-radius: 0.375rem;
 }
 
-.list-group-item:hover {
+.list-group-item:hover,
+.list-group-item:focus {
   cursor: pointer;
   background-color: #fff6e9;
 }
