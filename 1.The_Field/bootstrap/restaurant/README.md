@@ -1,6 +1,6 @@
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 
-# Restaurant
+# Bootstrap Restaurant
 
 - Type of challenge: **consolidation**
 - Duration: **4 days**
@@ -51,3 +51,7 @@ If you want to make an even more complex website feel free to try new things and
 ## Result
 
 https://n-vh.github.io/bootstrap/restaurant
+
+#### Welcome to The Pet Plate, a restaurant where you and your furry friend can enjoy high quality dishes together. The menu features a variety of options that are not only delicious for humans, but also safe and nutritious for pets!
+
+_All images come from [Google Images](https://images.google.com) search_
