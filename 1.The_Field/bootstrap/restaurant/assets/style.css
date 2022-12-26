@@ -62,7 +62,6 @@ body {
 /* menu */
 
 .badge {
-  font-size: 14px;
   font-weight: 400;
   background-color: var(--accent-color) !important;
 }
