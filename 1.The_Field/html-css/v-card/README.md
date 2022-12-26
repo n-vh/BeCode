@@ -20,4 +20,4 @@
 
 ## Result
 
-https://n-vh.github.io/pages/v-card
+https://n-vh.github.io/v-card

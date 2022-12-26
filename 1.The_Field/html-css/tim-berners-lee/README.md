@@ -49,4 +49,4 @@ web page, following a predefined mockup.
 
 ## Result
 
-https://n-vh.github.io/pages/tim-berners-lee
+https://n-vh.github.io/tim-berners-lee

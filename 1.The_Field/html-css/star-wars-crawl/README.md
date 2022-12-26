@@ -42,4 +42,4 @@ Ever seen the [Star Wars intro](https://www.youtube.com/watch?v=C587lNBQXAw)? We
 
 ## Result
 
-https://n-vh.github.io/pages/star-wars
+https://n-vh.github.io/star-wars

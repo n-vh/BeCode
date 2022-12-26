@@ -40,4 +40,4 @@
 
 ## Result
 
-https://n-vh.github.io/pages/bootstrap/initiation
+https://n-vh.github.io/bootstrap/initiation
