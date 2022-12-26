@@ -21,4 +21,4 @@
 
 ## Result
 
-https://n-vh.github.io/pages/404
+https://n-vh.github.io/404
