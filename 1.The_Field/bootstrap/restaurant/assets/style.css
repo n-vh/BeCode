@@ -12,23 +12,17 @@ body {
   background-size: 1000%;
 }
 
-.header {
+.serif {
   font-family: 'DM Serif Display';
 }
 
-.logo {
-  font-family: 'Satisfy';
-  font-size: 36px;
-  line-height: 0;
-}
-
-.logo b {
+.serif b {
   color: var(--accent-color);
 }
 
-.navbar-nav {
-  font-size: 15px;
-  gap: 12px;
+.logo {
+  font-size: 36px;
+  line-height: 0;
 }
 
 .btn-contact,
