@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <script src="assets/vendor/bootstrap.min.js"></script>
+    <script src="assets/script.js"></script>
+    <title>Contact – The Pet Plate</title>
+  </head>
+  <body class="d-flex flex-column vh-100">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-white py-3">
+      <div class="container">
+        <img class="mx-2" src="assets/images/logo.svg" height="38" width="56" />
+        <a class="navbar-brand m-0 logo serif" href="index.html">The Pet Plate<b>.</b></a>
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#hamburger"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="navbar-collapse collapse text-center justify-content-end"
+          id="hamburger"
+        >
+          <ul class="navbar-nav gap-2 mb-2 mb-md-0 mt-3 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="menu.html">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pictures.html">Pictures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="restaurants.html">Restaurants</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-contact" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- modal -->
+    <div class="modal fade" id="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modal">Message sent!</h1>
+          </div>
+          <div class="modal-body">
+            Your message has been received and is being processed. We will be in touch
+            with you shortly to confirm receipt and provide any additional information or
+            assistance you may need.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-contact" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- contact -->
+    <section class="container my-5">
+      <div class="row gap-4 justify-content-center">
+        <div class="d-flex justify-content-center">
+          <h1 class="serif">Do you have any question?</h1>
+        </div>
+        <section class="card col-10 col-md-8 col-lg-6">
+          <form class="row g-3 p-3" onsubmit="showModal(event)">
+            <div class="col-md-6">
+              <label for="form-first-name" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="form-first-name" required />
+            </div>
+            <div class="col-md-6">
+              <label for="form-last-name" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="form-last-name" required />
+            </div>
+            <div class="col-md-12">
+              <label for="form-subject" class="form-label">Subject</label>
+              <select class="form-select" id="form-subject" required>
+                <option selected disabled value="">Choose...</option>
+                <option>Reservation request</option>
+                <option>Inquiry about private events</option>
+                <option>Suggestions for menu items</option>
+                <option>Questions about offers or events</option>
+                <option>General question or comment</option>
+              </select>
+            </div>
+            <div class="col-md-12">
+              <label for="form-message" class="form-label">Message</label>
+              <input type="text" class="form-control" id="form-message" required />
+            </div>
+            <div class="col-12">
+              <button class="btn btn-contact" type="submit">Submit</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="text-center py-4 bg-white mt-auto">
+      <a class="btn btn-link btn-floating btn-lg text-dark">
+        <i class="fab fa-facebook-f"> </i>
+      </a>
+      <a class="btn btn-link btn-floating btn-lg text-dark">
+        <i class="fab fa-twitter"> </i>
+      </a>
+      <a class="btn btn-link btn-floating btn-lg text-dark">
+        <i class="fab fa-instagram"> </i>
+      </a>
+      <section class="my-2">
+        © 2022 Copyright | <a class="text-dark serif" href="index.html">The Pet Plate</a>
+      </section>
+    </footer>
+  </body>
+</html>
