@@ -1,3 +1,10 @@
+function showModal(e) {
+  e.preventDefault();
+  new bootstrap.Modal('#modal', {
+    keyboard: false,
+  }).show();
+}
+
 const locations = {
   brussels: { lat: 50.852949, lng: 4.353136 },
   ghent: { lat: 51.040234, lng: 3.7335545 },

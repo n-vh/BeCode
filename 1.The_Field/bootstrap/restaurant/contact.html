@@ -16,6 +16,7 @@
     />
     <link rel="stylesheet" href="assets/vendor/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/style.css" />
+    <script src="assets/script.js"></script>
     <title>Contact – The Pet Plate</title>
   </head>
   <body>
@@ -90,17 +91,7 @@
           <h1 class="header">Do you have any question?</h1>
         </div>
         <section class="card col-10 col-md-8 col-lg-6">
-          <form
-            class="row g-3 p-3"
-            onsubmit="
-              return ((e) => {
-                e.preventDefault();
-                new bootstrap.Modal('#modal', {
-                  keyboard: false
-                }).show()
-              })(event);
-            "
-          >
+          <form class="row g-3 p-3" onsubmit="showModal(event)">
             <div class="col-md-6">
               <label for="form-first-name" class="form-label">First Name</label>
               <input type="text" class="form-control" id="form-first-name" required />
