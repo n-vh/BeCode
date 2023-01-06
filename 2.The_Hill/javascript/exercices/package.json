@@ -4,12 +4,15 @@
   "private": true,
   "scripts": {
     "start": "npx seve -e '*.json,*.md,node_modules,__shared__' -p 8000 -i .",
-    "api": "npx json-server ./__shared__/api.json"
+    "api": "npx json-server ./__shared__/api.json",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "json-server": "^0.14.2"
   },
   "devDependencies": {
+    "jest": "^29.3.1",
     "seve": "^0.8.0"
   }
 }
