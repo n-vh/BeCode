@@ -1,27 +1,27 @@
-(() => {
-  const toNumber = (value) => {
-    const number = parseInt(value);
-    return Number.isInteger(number) ? number : 0;
-  };
+const toNumber = (n) => {
+  const number = Number(n);
+  return !Number.isNaN(number) ? number : 0;
+};
 
+(() => {
   const performOperation = (operation) => {
-    const one = document.getElementById('op-one').value;
-    const two = document.getElementById('op-two').value;
+    const one = toNumber(document.getElementById('op-one').value);
+    const two = toNumber(document.getElementById('op-two').value);
 
     let result;
 
     switch (operation) {
       case 'addition':
-        result = toNumber(one) + toNumber(two);
+        result = one + two;
         break;
       case 'substraction':
-        result = toNumber(one) - toNumber(two);
+        result = one - two;
         break;
       case 'multiplication':
-        result = toNumber(one) * toNumber(two);
+        result = one * two;
         break;
       case 'division':
-        result = toNumber(one) / toNumber(two);
+        result = one / two;
         break;
     }
 

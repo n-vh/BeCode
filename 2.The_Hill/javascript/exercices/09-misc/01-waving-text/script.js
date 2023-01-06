@@ -3,24 +3,18 @@ const text =
 
 const wave = [16, 20, 24, 28, 32, 26, 22, 18, 16];
 
-const addWave = (string) => {
-  return string
-    .split('')
-    .map((letter, i) => {
-      return `<span style="font-size:${wave[i]}px;">${letter}</span>`;
-    })
-    .join('');
-};
-
 (() => {
-  const element = document.getElementById('target');
+  const target = document.getElementById('target');
 
-  let innerHTML = '';
+  target.innerHTML = '';
 
   for (let i = 0; i < text.length; i += wave.length) {
     const letters = text.slice(i, i + wave.length);
-    innerHTML += addWave(letters);
-  }
 
-  element.innerHTML = innerHTML;
+    letters.split('').forEach((letter, i) => {
+      const span = `<span style="font-size:${wave[i]}px;">${letter}</span>`;
+      const node = document.createRange().createContextualFragment(span);
+      target.appendChild(node);
+    });
+  }
 })();

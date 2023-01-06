@@ -1,12 +1,13 @@
 (() => {
   class Animal {
     sayHello() {
-      return `${this.constructor.greeting}! I'm ${this.name}!`;
+      return `${this.constructor.greeting}! I'm ${this.name}! ${this.constructor.emoji}`;
     }
   }
 
   class Cat extends Animal {
     static greeting = 'Miaou';
+    static emoji = '🐱';
 
     constructor(name) {
       super();
@@ -16,6 +17,7 @@
 
   class Dog extends Animal {
     static greeting = 'Wouf';
+    static emoji = '🐶';
 
     constructor(name) {
       super();

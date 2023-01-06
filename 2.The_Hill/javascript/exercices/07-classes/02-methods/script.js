@@ -6,7 +6,7 @@
     }
 
     sayHello() {
-      return `Hello, ${this.firstname} ${this.lastname}!`;
+      return `Hello, ${this.firstname} ${this.lastname}! 👋`;
     }
   }
 

@@ -1,3 +1,8 @@
+const toNumber = (n) => {
+  const number = Number(n);
+  return !Number.isNaN(number) ? number : 0;
+};
+
 (() => {
   const buttons = document.querySelectorAll('.actions button');
   const target = document.getElementById('target');
@@ -11,9 +16,9 @@
   };
 
   const handleClick = ({ target: button }) => {
-    const min = Number(button.dataset.min);
-    const max = Number(button.dataset.max);
-    let value = Number(button.textContent);
+    const min = toNumber(button.dataset.min);
+    const max = toNumber(button.dataset.max);
+    let value = toNumber(button.textContent);
 
     value += 1;
 

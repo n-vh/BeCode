@@ -1,9 +1,9 @@
-(() => {
-  const toNumber = (value) => {
-    const number = parseInt(value);
-    return Number.isInteger(number) ? number : 0;
-  };
+const toNumber = (n) => {
+  const number = Number(n);
+  return !Number.isNaN(number) ? number : 0;
+};
 
+(() => {
   document.getElementById('run').addEventListener('click', () => {
     const input = document.getElementById('number').value;
     const number = toNumber(input);

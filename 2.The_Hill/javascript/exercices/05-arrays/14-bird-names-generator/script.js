@@ -1,3 +1,12 @@
+const randomNumber = (min, max) => {
+  return Math.floor(Math.random() * (max - min) + min);
+};
+
+const randomInArray = (array) => {
+  const random = randomNumber(0, array.length - 1);
+  return array[random];
+};
+
 (() => {
   const birds = [
     { name: 'mouette', fem: true },
@@ -26,11 +35,6 @@
     'tangent',
     'arboré',
   ]);
-
-  const randomInArray = (array) => {
-    const random = Math.floor(Math.random() * array.length);
-    return array[random];
-  };
 
   document.getElementById('run').addEventListener('click', () => {
     const element = document.getElementById('target');

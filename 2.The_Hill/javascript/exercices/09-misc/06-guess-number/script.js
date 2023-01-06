@@ -1,8 +1,8 @@
-(() => {
-  const randomNumber = (min, max) => {
-    return Math.floor(Math.random() * (max - min) + min);
-  };
+const randomNumber = (min, max) => {
+  return Math.floor(Math.random() * (max - min) + min);
+};
 
+(() => {
   const number = randomNumber(1, 100);
 
   let tries = 0;

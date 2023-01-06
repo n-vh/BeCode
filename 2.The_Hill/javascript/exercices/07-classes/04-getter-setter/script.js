@@ -15,6 +15,7 @@
       this.lastname = lastname;
     }
   }
+
   document.getElementById('run').addEventListener('click', () => {
     const person = new Person('Nils', 'Van Hée');
     console.log(person.name);

@@ -1,12 +1,17 @@
+const toNumber = (n) => {
+  const number = Number(n);
+  return !Number.isNaN(number) ? number : 0;
+};
+
 (() => {
   const groups = document.querySelectorAll('.field.slot');
   const target = document.getElementById('target');
 
-  const updatePhoneNumber = () => {
+  const updatePhoneNumber = (target) => {
     let phoneNumber = '';
     groups.forEach((group) => {
-      const input = group.children[0];
-      phoneNumber += input.value;
+      const input = group.querySelector('input');
+      phoneNumber += input.value.padStart(2, '0');
     });
     target.textContent = `+${phoneNumber}`;
   };
@@ -14,9 +19,9 @@
   groups.forEach((group) => {
     const [input, button] = group.children;
 
-    const min = Number(input.dataset.min);
-    const max = Number(input.dataset.max);
-    let value = Number(input.value);
+    const min = toNumber(input.dataset.min);
+    const max = toNumber(input.dataset.max);
+    let value = toNumber(input.value);
 
     let stopped = false;
 
@@ -43,7 +48,7 @@
         increment();
         button.innerHTML = 'Stop';
       } else {
-        updatePhoneNumber();
+        updatePhoneNumber(target);
         button.innerHTML = 'Start';
       }
     };

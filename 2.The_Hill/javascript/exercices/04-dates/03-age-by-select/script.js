@@ -10,13 +10,9 @@
   };
 
   document.getElementById('run').addEventListener('click', () => {
-    const dayElement = document.getElementById('dob-day');
-    const monthElement = document.getElementById('dob-month');
-    const yearElement = document.getElementById('dob-year');
-
-    const day = dayElement.options[dayElement.selectedIndex].value;
-    const month = monthElement.options[monthElement.selectedIndex].value;
-    const year = yearElement.options[yearElement.selectedIndex].value;
+    const day = document.getElementById('dob-day').value;
+    const month = document.getElementById('dob-month').value;
+    const year = document.getElementById('dob-year').value;
 
     const age = calculateAge(day, month, year);
 
