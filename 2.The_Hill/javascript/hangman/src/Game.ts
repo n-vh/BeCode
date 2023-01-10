@@ -20,27 +20,38 @@ export class Game {
 
     updateTries(this.tries);
     updateAttempt(this.puzzle);
+
   }
 
-  public guess(letter: string) {
-    if (this.letters.has(letter)) {
-      this.guesses.add(letter);
-      updateAttempt(this.puzzle);
-    } else {
-      this.tries -= 1;
-    }
-    updateTries(this.tries);
-  }
+  public guess(key: HTMLButtonElement, letter: string) {
+    if (this.state === GameState.Playing) {
+      if (this.letters.has(letter)) {
+        this.guesses.add(letter);
 
-
+        this.updateAttempt();
       } else {
+        this.lives -= 1;
       }
+
+      key.disabled = true;
     }
 
+    this.updateHangman();
+  }
 
   public get puzzle(): string[] {
     return this.word.split('').map((letter) => {
       return this.guesses.has(letter) ? letter : ' ';
     });
+  }
+
+  private get state(): GameState {
+    if (this.lives <= 0) {
+      return GameState.GameOver;
+    } else if (this.letters.size === this.guesses.size) {
+      return GameState.Win;
+    } else {
+      return GameState.Playing;
+    }
   }
 }
