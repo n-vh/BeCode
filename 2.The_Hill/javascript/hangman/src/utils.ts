@@ -35,15 +35,6 @@ export function createKeyboard(
   }
 }
 
-
-export function updateTries(tries: number) {
-  const triesElement = document.getElementById('tries') as HTMLDivElement;
-
-  triesElement.innerHTML = '';
-
-  for (let i = 0; i < tries; i++) {
-    triesElement.innerHTML += '❤️';
-  }
 export function randomWord() {
   const index = Math.floor(Math.random() * words.length);
   return words[index];

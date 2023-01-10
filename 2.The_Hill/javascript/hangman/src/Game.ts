@@ -1,5 +1,3 @@
-import { updateTries } from './utils';
-
 export enum GameState {
   GameOver,
   Playing,
@@ -8,18 +6,19 @@ export enum GameState {
 
 export class Game {
   private word: string;
+  private tries: number;
+  private lives: number;
   private letters: Set<string>;
   private guesses: Set<string>;
-  private tries: number;
 
-  constructor(word: string, tries: number) {
+  constructor(word: string, lives: number) {
     this.word = word;
+    this.tries = lives;
+    this.lives = lives;
     this.letters = new Set(word.split(''));
     this.guesses = new Set();
-    this.tries = tries;
 
-    updateTries(this.tries);
-
+    this.updateHangman();
     this.updateAttempt();
   }
 
@@ -67,5 +66,10 @@ export class Game {
 
       attempt.appendChild(clone);
     }
+  }
+
+  private updateHangman() {
+    const hangmanElement = document.getElementById('hangman') as HTMLImageElement;
+    hangmanElement.src = `./assets/hangman-${this.tries - this.lives}.svg`;
   }
 }
