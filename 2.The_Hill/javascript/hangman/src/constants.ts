@@ -3,3 +3,4 @@ export const keyboardLayout = [
   ['q', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm'],
   ['w', 'x', 'c', 'v', 'b', 'n'],
 ];
+export { default as words } from './words/en';

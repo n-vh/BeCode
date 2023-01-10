@@ -1,4 +1,4 @@
-import { keyboardLayout } from './constants';
+import { keyboardLayout, words } from './constants';
 
 export function createKeyboard(
   callback: (key: HTMLButtonElement, letter: string) => void,
@@ -49,4 +49,7 @@ export function updateTries(tries: number) {
   for (let i = 0; i < tries; i++) {
     triesElement.innerHTML += '❤️';
   }
+export function randomWord() {
+  const index = Math.floor(Math.random() * words.length);
+  return words[index];
 }
