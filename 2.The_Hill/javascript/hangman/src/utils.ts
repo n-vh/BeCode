@@ -1,5 +1,11 @@
 import { keyboardLayout, words } from './constants';
 
+const getLayout = () => {
+  return window.navigator.language.startsWith('fr')
+    ? keyboardLayout.azerty
+    : keyboardLayout.qwerty;
+};
+
 export function createKeyboard(
   callback: (key: HTMLButtonElement, letter: string) => void,
 ) {
@@ -9,7 +15,9 @@ export function createKeyboard(
 
   keyboard.innerHTML = '';
 
-  for (const letters of keyboardLayout) {
+  const layout = getLayout();
+
+  for (const letters of layout) {
     const row = rowTemplate.cloneNode() as HTMLElement;
 
     for (const letter of letters) {
