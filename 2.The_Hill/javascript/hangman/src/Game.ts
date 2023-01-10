@@ -77,7 +77,7 @@ export class Game {
 
   private updateHangman() {
     const hangmanElement = document.getElementById('hangman') as HTMLImageElement;
-    hangmanElement.src = `./assets/hangman-${this.incorrect.size}.svg`;
+    hangmanElement.src = `./hangman-${this.incorrect.size}.svg`;
   }
 
   private updateLocalStorage() {
