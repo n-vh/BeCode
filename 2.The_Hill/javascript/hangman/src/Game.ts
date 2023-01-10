@@ -32,17 +32,15 @@ export class Game {
     updateTries(this.tries);
   }
 
-  public get puzzle(): string[] {
-    let puzzle = '';
 
-    for (const letter of this.word) {
-      if (this.guesses.has(letter)) {
-        puzzle += letter;
       } else {
-        puzzle += ' ';
       }
     }
 
-    return puzzle.split('');
+
+  public get puzzle(): string[] {
+    return this.word.split('').map((letter) => {
+      return this.guesses.has(letter) ? letter : ' ';
+    });
   }
 }
