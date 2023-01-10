@@ -1,4 +1,4 @@
-import { updateAttempt, updateTries } from './utils';
+import { updateTries } from './utils';
 
 export enum GameState {
   GameOver,
@@ -19,8 +19,8 @@ export class Game {
     this.tries = tries;
 
     updateTries(this.tries);
-    updateAttempt(this.puzzle);
 
+    this.updateAttempt();
   }
 
   public guess(key: HTMLButtonElement, letter: string) {
@@ -52,6 +52,20 @@ export class Game {
       return GameState.Win;
     } else {
       return GameState.Playing;
+    }
+  }
+
+  private updateAttempt() {
+    const attempt = document.getElementById('attempt') as HTMLDivElement;
+    const letterTemplate = attempt.querySelector('span')!;
+
+    attempt.innerHTML = '';
+
+    for (const letter of this.puzzle) {
+      const clone = letterTemplate.cloneNode();
+      clone.textContent = letter;
+
+      attempt.appendChild(clone);
     }
   }
 }

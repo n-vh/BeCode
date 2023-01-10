@@ -35,19 +35,6 @@ export function createKeyboard(
   }
 }
 
-export function updateAttempt(letters: string[]) {
-  const attempt = document.getElementById('attempt') as HTMLDivElement;
-  const letterTemplate = attempt.querySelector('span')!;
-
-  attempt.innerHTML = '';
-
-  for (const letter of letters) {
-    const clone = letterTemplate.cloneNode();
-    clone.textContent = letter;
-
-    attempt.appendChild(clone);
-  }
-}
 
 export function updateTries(tries: number) {
   const triesElement = document.getElementById('tries') as HTMLDivElement;
