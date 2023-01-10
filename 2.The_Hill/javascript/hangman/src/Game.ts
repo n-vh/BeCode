@@ -1,3 +1,6 @@
+import { Keyboard } from './types';
+import { randomWord } from './utils';
+
 export enum GameState {
   GameOver,
   Playing,
@@ -5,19 +8,21 @@ export enum GameState {
 }
 
 export class Game {
-  private word: string;
-  private tries: number;
-  private lives: number;
+  static MAX_TRIES = 7;
+
+  public word: string;
+
   private letters: Set<string>;
-  private guesses: Set<string>;
+  private correct: Set<string>;
+  private incorrect: Set<string>;
 
-  constructor(word: string, lives: number) {
-    this.word = word;
-    this.tries = lives;
-    this.lives = lives;
-    this.letters = new Set(word.split(''));
-    this.guesses = new Set();
+  constructor() {
+    this.word = randomWord();
+    this.letters = new Set(this.word.split(''));
+    this.correct = new Set();
+    this.incorrect = new Set();
 
+    this.restoreGame();
     this.updateHangman();
     this.updateAttempt();
   }
@@ -25,29 +30,31 @@ export class Game {
   public guess(key: HTMLButtonElement, letter: string) {
     if (this.state === GameState.Playing) {
       if (this.letters.has(letter)) {
-        this.guesses.add(letter);
-
-        this.updateAttempt();
+        this.correct.add(letter);
       } else {
-        this.lives -= 1;
+        this.incorrect.add(letter);
       }
 
+      this.updateAttempt();
       key.disabled = true;
     }
 
     this.updateHangman();
+    this.updateLocalStorage();
+
+    return this.state;
   }
 
   public get puzzle(): string[] {
     return this.word.split('').map((letter) => {
-      return this.guesses.has(letter) ? letter : ' ';
+      return this.correct.has(letter) ? letter : ' ';
     });
   }
 
-  private get state(): GameState {
-    if (this.lives <= 0) {
+  public get state(): GameState {
+    if (this.incorrect.size >= Game.MAX_TRIES) {
       return GameState.GameOver;
-    } else if (this.letters.size === this.guesses.size) {
+    } else if (this.letters.size === this.correct.size) {
       return GameState.Win;
     } else {
       return GameState.Playing;
@@ -70,6 +77,55 @@ export class Game {
 
   private updateHangman() {
     const hangmanElement = document.getElementById('hangman') as HTMLImageElement;
-    hangmanElement.src = `./assets/hangman-${this.tries - this.lives}.svg`;
+    hangmanElement.src = `./assets/hangman-${this.incorrect.size}.svg`;
+  }
+
+  private updateLocalStorage() {
+    window.localStorage.setItem(
+      'game',
+      JSON.stringify({
+        word: this.word,
+        correct: [...this.correct],
+        incorrect: [...this.incorrect],
+      }),
+    );
+  }
+
+  private restoreGame() {
+    const game = window.localStorage.getItem('game');
+
+    if (game) {
+      const { word, correct, incorrect } = JSON.parse(game);
+      this.word = word;
+      this.letters = new Set(word.split(''));
+      this.correct = new Set(correct);
+      this.incorrect = new Set(incorrect);
+    }
+
+    this.updateLocalStorage();
+  }
+
+  public resetGame(modal: HTMLElement) {
+    this.word = randomWord();
+    this.letters = new Set(this.word.split(''));
+    this.correct = new Set();
+    this.incorrect = new Set();
+
+    this.updateHangman();
+    this.updateAttempt();
+    this.updateLocalStorage();
+
+    modal.classList.add('hidden');
+  }
+
+  public restoreKeyboard(keyboard: Keyboard) {
+    const guesses = [...this.correct].concat(...this.incorrect);
+
+    keyboard.forEach((e) => (e.disabled = false));
+
+    for (const guess of guesses) {
+      const button = keyboard.get(guess)!;
+      button.disabled = true;
+    }
   }
 }

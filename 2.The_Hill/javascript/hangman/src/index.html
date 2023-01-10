@@ -18,9 +18,24 @@
       <div id="keyboard" class="keyboard flex flex-col flex-wrap gap-1.5 text-center">
         <section class="flex gap-1.5 justify-center">
           <button
-            class="bg-slate-100 hover:bg-gray-300 text-slate-800 text-xl font-medium rounded-md w-10 h-12 disabled:bg-slate-600 disabled:text-slate-800 uppercase"
+            class="bg-slate-100 hover:bg-slate-300 text-slate-800 text-xl font-medium rounded-md w-10 h-12 disabled:bg-slate-600 disabled:text-slate-800 uppercase"
           ></button>
         </section>
+      </div>
+    </div>
+    <div
+      id="modal"
+      class="hidden h-screen w-screen absolute flex justify-center items-center bg-black bg-opacity-70"
+    >
+      <div
+        class="bg-slate-700 text-2xl font-medium text-slate-100 rounded-lg py-5 px-10 flex flex-col gap-4"
+      >
+        <div class="title"></div>
+        <button
+          class="bg-slate-600 hover:bg-slate-500 text-slate-100 text-base rounded-lg py-1 px-3"
+        >
+          Try Again
+        </button>
       </div>
     </div>
 
