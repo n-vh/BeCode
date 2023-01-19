@@ -3,6 +3,7 @@ import Chart from 'chart.js/auto';
 
 function insertCrimesChart() {
   const table = document.getElementById('table1') as HTMLTableElement;
+  const parent = table.parentNode as HTMLElement;
   const chart = document.createElement('canvas');
   const rows = table.querySelectorAll('tbody tr');
 
@@ -29,8 +30,14 @@ function insertCrimesChart() {
     columns.forEach((column, columnIndex) => {
       // first column is the country names
       if (columnIndex === 0) {
+        let country = column.textContent!;
+
+        if (country.includes(')')) {
+          country = country.substring(0, country.length - 3);
+        }
+
         datasets.push({
-          label: column.textContent!,
+          label: country,
           data: [],
         });
 
@@ -62,6 +69,7 @@ function insertCrimesChart() {
           borderWidth: 2,
         },
       },
+      animation: false,
       scales: {
         y: {
           type: 'logarithmic',
@@ -70,7 +78,7 @@ function insertCrimesChart() {
     },
   });
 
-  table.parentNode!.insertBefore(chart, table);
+  parent.insertBefore(chart, table);
 }
 
 insertCrimesChart();
