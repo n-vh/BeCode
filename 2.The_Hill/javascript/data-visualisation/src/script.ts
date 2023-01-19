@@ -74,4 +74,55 @@ function insertCrimesChart() {
   parent.insertBefore(chart, table);
 }
 
+function insertHomicidesChart() {
+  const { table, parent, chart } = getTable('table2');
+  const headers = table.querySelectorAll('thead th');
+  const cells = table.querySelectorAll('tbody td');
+
+  const labels: string[] = [];
+  const datasets: ChartDataset<'bar'>[] = [];
+
+  for (let i = 0; i < headers.length; i++) {
+    const headerIndex = i % 4;
+    const header = headers[i];
+
+    switch (headerIndex) {
+      case 2:
+      case 3:
+        datasets.push({
+          label: header.textContent!,
+          data: [],
+          categoryPercentage: 0.5,
+        });
+    }
+  }
+
+  for (let i = 0; i < cells.length; i++) {
+    const columnIndex = i % 3;
+    const cell = cells[i];
+
+    switch (columnIndex) {
+      case 0:
+        labels.push(cell.textContent!);
+        continue;
+      case 1:
+      case 2:
+        const number = cell.textContent!;
+        datasets[columnIndex - 1].data.push(Number(number));
+    }
+  }
+
+  new Chart(chart, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets,
+    },
+    options: chartOptions,
+  });
+
+  parent.insertBefore(chart, table);
+}
+
 insertCrimesChart();
+insertHomicidesChart();
