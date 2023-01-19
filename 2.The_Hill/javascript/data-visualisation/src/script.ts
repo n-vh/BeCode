@@ -1,59 +1,66 @@
-import { ChartDataset } from 'chart.js';
+import { ChartDataset, ChartOptions } from 'chart.js';
 import Chart from 'chart.js/auto';
 
-function insertCrimesChart() {
-  const table = document.getElementById('table1') as HTMLTableElement;
+const chartOptions: ChartOptions = {
+  animation: {
+    duration: 100,
+  },
+  aspectRatio: 1,
+  elements: {
+    line: {
+      tension: 0.5,
+      borderWidth: 2,
+    },
+  },
+  responsive: true,
+  scales: {
+    y: {
+      type: 'logarithmic',
+    },
+  },
+};
+
+function getTable(id: string) {
+  const table = document.getElementById(id) as HTMLTableElement;
   const parent = table.parentNode as HTMLElement;
   const chart = document.createElement('canvas');
-  const rows = table.querySelectorAll('tbody tr');
+  return { table, parent, chart };
+}
+
+function insertCrimesChart() {
+  const { table, parent, chart } = getTable('table1');
+  const headers = table.querySelectorAll('tbody th');
+  const cells = table.querySelectorAll('tbody td');
 
   const labels: string[] = [];
   const datasets: ChartDataset<'line'>[] = [];
 
-  rows.forEach((row, rowIndex) => {
-    // first row is the labels
-    if (rowIndex === 0) {
-      row.childNodes.forEach((year) => {
-        const text = year.textContent;
-        if (text?.length === 4) {
-          labels.push(text);
-        }
-      });
+  for (let i = 0; i < headers.length; i++) {
+    const header = headers[i].textContent!;
 
-      // return to continue loop
-      return;
+    if (header.length === 4) {
+      labels.push(header);
     }
+  }
 
-    const columns = row.querySelectorAll('td');
-    const data: number[] = [];
+  let rowIndex = -1;
 
-    columns.forEach((column, columnIndex) => {
-      // first column is the country names
-      if (columnIndex === 0) {
-        let country = column.textContent!;
+  for (let i = 0; i < cells.length; i++) {
+    const columnIndex = i % 12;
+    const cellText = cells[i].textContent!.replace(/\([⁰¹²³⁴⁵⁶⁷⁸⁹]\)/, '');
 
-        if (country.includes(')')) {
-          country = country.substring(0, country.length - 3);
-        }
+    if (columnIndex === 0) {
+      rowIndex += 1;
 
-        datasets.push({
-          label: country,
-          data: [],
-        });
-
-        // return to continue loop
-        return;
-      }
-
-      // convert the string to an actual number
-      const number = column.textContent!.replace(',', '.');
-      data.push(Number(number));
-    });
-
-    Object.assign(datasets[rowIndex - 1], {
-      data,
-    });
-  });
+      datasets.push({
+        label: cellText,
+        data: [],
+      });
+    } else {
+      const number = cellText.replace(',', '.');
+      datasets[rowIndex].data.push(Number(number));
+    }
+  }
 
   new Chart(chart, {
     type: 'line',
@@ -61,21 +68,7 @@ function insertCrimesChart() {
       labels,
       datasets,
     },
-    options: {
-      aspectRatio: 1,
-      elements: {
-        line: {
-          tension: 0.5,
-          borderWidth: 2,
-        },
-      },
-      animation: false,
-      scales: {
-        y: {
-          type: 'logarithmic',
-        },
-      },
-    },
+    options: chartOptions,
   });
 
   parent.insertBefore(chart, table);
