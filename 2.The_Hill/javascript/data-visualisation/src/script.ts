@@ -23,10 +23,10 @@ const chartOptions: ChartOptions = {
 function getTarget(selector: string) {
   const target = document.querySelector(selector)!;
   const canvas = document.createElement('canvas');
-  target.insertAdjacentElement('beforebegin', canvas);
   return {
     target,
-    insertChart: (options: ChartConfiguration) => {
+    insertChart: (where: InsertPosition, options: ChartConfiguration) => {
+      target.insertAdjacentElement(where, canvas);
       return new Chart(canvas, options);
     },
   };
@@ -67,7 +67,7 @@ function insertCrimesChart() {
     }
   }
 
-  insertChart({
+  insertChart('beforebegin', {
     type: 'line',
     data: {
       labels,
@@ -115,7 +115,7 @@ function insertHomicidesChart() {
     }
   }
 
-  insertChart({
+  insertChart('beforebegin', {
     type: 'bar',
     data: {
       labels,
