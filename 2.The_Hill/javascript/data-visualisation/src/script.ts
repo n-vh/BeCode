@@ -125,5 +125,40 @@ function insertHomicidesChart() {
   });
 }
 
+function insertRemoteDataChart() {
+  const { insertChart } = getTarget('h1');
+
+  const fetchData = () =>
+    fetch('https://canvasjs.com/services/data/datapoints.php', {
+      cache: 'no-cache',
+    }).then((res) => res.json());
+
+  const handleData = async () => {
+    const data = await fetchData();
+    const dataset: ChartDataset<'scatter'>[] = [
+      {
+        label: 'Random Remote Data Points',
+        data: data.map(([x, y]: number[]) => ({ x, y })),
+      },
+    ];
+    return dataset;
+  };
+
+  const chart = insertChart('afterend', {
+    type: 'scatter',
+    data: {
+      datasets: [],
+    },
+  });
+
+  setInterval(() => {
+    handleData().then((data) => {
+      chart.data.datasets = data;
+      chart.update();
+    });
+  }, 1000);
+}
+
 insertCrimesChart();
 insertHomicidesChart();
+insertRemoteDataChart();
