@@ -1,4 +1,4 @@
-import { ChartDataset, ChartOptions } from 'chart.js';
+import { ChartConfiguration, ChartDataset, ChartOptions } from 'chart.js';
 import Chart from 'chart.js/auto';
 
 const chartOptions: ChartOptions = {
@@ -20,17 +20,22 @@ const chartOptions: ChartOptions = {
   },
 };
 
-function getTable(id: string) {
-  const table = document.getElementById(id) as HTMLTableElement;
-  const parent = table.parentNode as HTMLElement;
-  const chart = document.createElement('canvas');
-  return { table, parent, chart };
+function getTarget(selector: string) {
+  const target = document.querySelector(selector)!;
+  const canvas = document.createElement('canvas');
+  target.insertAdjacentElement('beforebegin', canvas);
+  return {
+    target,
+    insertChart: (options: ChartConfiguration) => {
+      return new Chart(canvas, options);
+    },
+  };
 }
 
 function insertCrimesChart() {
-  const { table, parent, chart } = getTable('table1');
-  const headers = table.querySelectorAll('tbody th');
-  const cells = table.querySelectorAll('tbody td');
+  const { target, insertChart } = getTarget('#table1');
+  const headers = target.querySelectorAll('tbody th');
+  const cells = target.querySelectorAll('tbody td');
 
   const labels: string[] = [];
   const datasets: ChartDataset<'line'>[] = [];
@@ -62,7 +67,7 @@ function insertCrimesChart() {
     }
   }
 
-  new Chart(chart, {
+  insertChart({
     type: 'line',
     data: {
       labels,
@@ -70,14 +75,12 @@ function insertCrimesChart() {
     },
     options: chartOptions,
   });
-
-  parent.insertBefore(chart, table);
 }
 
 function insertHomicidesChart() {
-  const { table, parent, chart } = getTable('table2');
-  const headers = table.querySelectorAll('thead th');
-  const cells = table.querySelectorAll('tbody td');
+  const { target, insertChart } = getTarget('#table2');
+  const headers = target.querySelectorAll('thead th');
+  const cells = target.querySelectorAll('tbody td');
 
   const labels: string[] = [];
   const datasets: ChartDataset<'bar'>[] = [];
@@ -112,7 +115,7 @@ function insertHomicidesChart() {
     }
   }
 
-  new Chart(chart, {
+  insertChart({
     type: 'bar',
     data: {
       labels,
@@ -120,8 +123,6 @@ function insertHomicidesChart() {
     },
     options: chartOptions,
   });
-
-  parent.insertBefore(chart, table);
 }
 
 insertCrimesChart();
