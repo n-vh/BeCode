@@ -14,6 +14,9 @@ const chartOptions: ChartOptions = {
   },
   responsive: true,
   scales: {
+    x: {
+      offset: true,
+    },
     y: {
       type: 'logarithmic',
     },
@@ -96,6 +99,8 @@ function insertHomicidesChart() {
           label: header.textContent!,
           data: [],
           categoryPercentage: 0.5,
+          barThickness: 8,
+          minBarLength: 10,
         });
     }
   }
